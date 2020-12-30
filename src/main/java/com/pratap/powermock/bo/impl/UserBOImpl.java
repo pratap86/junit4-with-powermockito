@@ -11,6 +11,10 @@ public class UserBOImpl implements UserBO {
 
 	private UserDAO userDAO;
 	
+	public UserBOImpl(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+
 	@Override
 	public String createUser(UserDTO user) throws BOException {
 		String userId;
@@ -20,14 +24,6 @@ public class UserBOImpl implements UserBO {
 			throw new BOException(e);
 		}
 		return userId;
-	}
-
-	public UserDAO getUserDAO() {
-		return userDAO;
-	}
-
-	public void setUserDAO(UserDAO userDAO) {
-		this.userDAO = userDAO;
 	}
 
 }
